@@ -81,7 +81,7 @@
             color: #444;
         }
 
-        /* ===== PADRÃO DE BOTÕES (SPRITE LILÁS) ===== */
+        /* ===== PADRÃO DE BOTÕES ===== */
         .button {
             font-size: 10px;
             font-weight: bold;
@@ -95,9 +95,10 @@
             display: inline-block;
             border: none;
             text-decoration: none;
+            margin-right: 5px; /* Espaçamento entre botões */
         }
 
-        /* ESPECIFICAÇÃO TÉCNICA DO ROXO */
+        /* ROXO */
         .purpleB {
             background-position: 0 -595px;
             border: 1px solid #6a4a9c;
@@ -111,10 +112,18 @@
             background-position: 0 -651px;
         }
 
-        .purpleB:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            background-position: 0 -595px;
+        /* LARANJA (NOVO) */
+        .orangeB {
+            background-position: 0 -340px;
+            border: 1px solid #d47a28;
+        }
+
+        .orangeB:hover {
+            background-position: 0 -368px;
+        }
+
+        .orangeB:active {
+            background-position: 0 -396px;
         }
 
         .redB {
@@ -205,6 +214,10 @@
                     onclick="abrirModal('justificativa.png', 'Modal de Confirmação e Justificativa')">
                     Visualizar Protótipo
                 </button>
+                
+                <a href="https://macielguilherme.github.io/inativar-documento-/" target="_blank" class="button orangeB">
+                    Ir para Tela do Modal
+                </a>
 
             </div>
         </div>
@@ -286,7 +299,7 @@
             const img = document.getElementById('target-img');
             const title = document.getElementById('modal-title');
 
-            img.src = arquivo; // Carrega "(nome da tela).png"
+            img.src = arquivo; 
             title.innerText = titulo;
             overlay.style.display = 'flex';
         }
@@ -295,7 +308,6 @@
             document.getElementById('modal-overlay').style.display = 'none';
         }
 
-        // Fechar ao clicar fora do modal
         document.getElementById('modal-overlay').addEventListener('click', function (e) {
             if (e.target === this) fecharModal();
         });
