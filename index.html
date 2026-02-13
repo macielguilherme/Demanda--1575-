@@ -95,41 +95,19 @@
             display: inline-block;
             border: none;
             text-decoration: none;
-            margin-right: 5px; /* Espaçamento entre botões */
+            margin-right: 5px;
+            margin-bottom: 5px;
         }
 
-        /* ROXO */
-        .purpleB {
-            background-position: 0 -595px;
-            border: 1px solid #6a4a9c;
-        }
+        .purpleB { background-position: 0 -595px; border: 1px solid #6a4a9c; }
+        .purpleB:hover { background-position: 0 -623px; }
+        .purpleB:active { background-position: 0 -651px; }
 
-        .purpleB:hover {
-            background-position: 0 -623px;
-        }
+        .orangeB { background-position: 0 -340px; border: 1px solid #d47a28; }
+        .orangeB:hover { background-position: 0 -368px; }
+        .orangeB:active { background-position: 0 -396px; }
 
-        .purpleB:active {
-            background-position: 0 -651px;
-        }
-
-        /* LARANJA (NOVO) */
-        .orangeB {
-            background-position: 0 -340px;
-            border: 1px solid #d47a28;
-        }
-
-        .orangeB:hover {
-            background-position: 0 -368px;
-        }
-
-        .orangeB:active {
-            background-position: 0 -396px;
-        }
-
-        .redB {
-            background-position: 0 -170px;
-            border: 1px solid #9f352b;
-        }
+        .redB { background-position: 0 -170px; border: 1px solid #9f352b; }
 
         /* ===== MODAL DE VISUALIZAÇÃO ===== */
         #modal-overlay {
@@ -157,12 +135,28 @@
             background: #fff;
             border: 1px solid #ccc;
             text-align: center;
+            padding: 20px 0;
         }
 
         .img-container img {
             max-width: 100%;
             display: block;
             margin: 0 auto;
+        }
+
+        /* Estilo para o código do SVG */
+        #svg-source-code {
+            display: none;
+            text-align: left;
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            word-break: break-all;
         }
 
         .button-wrapper {
@@ -195,6 +189,10 @@
                     onclick="abrirModal('botaonovo.png', 'Interface de Ação - Inativar Arquivo')">
                     Visualizar Protótipo
                 </button>
+                
+                <button class="button orangeB" onclick="abrirModalSVG()">
+                    Ver Ícone SVG + Código
+                </button>
             </div>
         </div>
     </div>
@@ -214,11 +212,9 @@
                     onclick="abrirModal('justificativa.png', 'Modal de Confirmação e Justificativa')">
                     Visualizar Protótipo
                 </button>
-                
                 <a href="https://macielguilherme.github.io/inativar-documento-/" target="_blank" class="button orangeB">
                     Ir para Tela do Modal
                 </a>
-
             </div>
         </div>
     </div>
@@ -283,8 +279,10 @@
                 <span class="ui-dialog-title" id="modal-title">Visualização</span>
             </div>
             <div class="ui-dialog-content">
-                <div class="img-container">
+                <div class="img-container" id="modal-render-area">
                     <img id="target-img" src="" alt="Protótipo DocZ">
+                    <div id="svg-preview"></div>
+                    <pre id="svg-source-code"></pre>
                 </div>
                 <div class="button-wrapper">
                     <button class="button redB" onclick="fecharModal()">FECHAR</button>
@@ -294,13 +292,48 @@
     </div>
 
     <script>
+        // O seu código SVG salvo em uma variável para ser reutilizado
+        const meuSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 256 256" fill="none">
+  <path fill="rgb(80,230,255)" stroke="rgb(37,107,119)" stroke-width="12" d="M40 16h120l56 56v152a8 8 0 0 1 -8 8H40a8 8 0 0 1 -8-8V24a8 8 0 0 1 8-8z" />
+  <path fill="rgb(46,122,213)" d="M160 16v56h56" />
+  <line x1="160" y1="16" x2="216" y2="72" stroke="rgb(37,107,119)" stroke-width="12" stroke-linecap="round" />
+  <line x1="88" y1="128" x2="168" y2="208" stroke="rgb(11,121,155)" stroke-width="16" stroke-linecap="round" />
+  <line x1="168" y1="128" x2="88" y2="208" stroke="rgb(11,121,155)" stroke-width="16" stroke-linecap="round" />
+</svg>`;
+
         function abrirModal(arquivo, titulo) {
             const overlay = document.getElementById('modal-overlay');
             const img = document.getElementById('target-img');
             const title = document.getElementById('modal-title');
+            const svgPreview = document.getElementById('svg-preview');
+            const svgCode = document.getElementById('svg-source-code');
+
+            // Reseta visualização para modo Imagem
+            img.style.display = 'block';
+            svgPreview.style.display = 'none';
+            svgCode.style.display = 'none';
 
             img.src = arquivo; 
             title.innerText = titulo;
+            overlay.style.display = 'flex';
+        }
+
+        function abrirModalSVG() {
+            const overlay = document.getElementById('modal-overlay');
+            const img = document.getElementById('target-img');
+            const title = document.getElementById('modal-title');
+            const svgPreview = document.getElementById('svg-preview');
+            const svgCode = document.getElementById('svg-source-code');
+
+            // Configura visualização para modo SVG
+            img.style.display = 'none';
+            svgPreview.style.display = 'block';
+            svgCode.style.display = 'block';
+
+            title.innerText = "Recurso Gráfico: Ícone de Inativação (SVG)";
+            svgPreview.innerHTML = meuSVG;
+            svgCode.innerText = meuSVG; // Mostra o texto do código
+
             overlay.style.display = 'flex';
         }
 
