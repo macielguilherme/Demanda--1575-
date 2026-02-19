@@ -1,350 +1,177 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demanda 1575 - SBIS (NGS1.12.03) - DocZ</title>
-    <style>
-        /* ===== ESTILOS BASE DOCZ ===== */
-        html,
-        body {
-            margin: 0;
-            padding: 20px;
-            background: #fafafa;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #595959;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .header-title {
-            width: 100%;
-            max-width: 850px;
-            margin-bottom: 25px;
-            border-bottom: 2px solid #3672a0;
-            padding-bottom: 10px;
-        }
-
-        .header-title h1 {
-            font-size: 18px;
-            color: #3672a0;
-            margin: 0;
-        }
-
-        .header-title p {
-            font-size: 12px;
-            color: #888;
-            margin: 5px 0 0 0;
-        }
-
-        /* ===== CONTAINER DOS PROTÓTIPOS ===== */
-        .prototype-container {
-            width: 100%;
-            max-width: 850px;
-            margin-bottom: 20px;
-        }
-
-        .ui-dialog {
-            background: #585858;
-            padding: 5px;
-            border-radius: 5px;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .ui-dialog-titlebar {
-            background: url("https://docz.sosdocs.com.br/Docz/app/images/backgrounds/titleBg.png") repeat-x 0 0;
-            border-bottom: 1px solid #cdcdcd;
-            height: 34px;
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-        }
-
-        .ui-dialog-title {
-            font-weight: bold;
-            color: #595959;
-            font-size: 11px;
-            text-transform: uppercase;
-        }
-
-        .ui-dialog-content {
-            background-color: #fafafa;
-            padding: 18px;
-        }
-
-        .proto-text {
-            font-size: 12px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: #444;
-        }
-
-        /* ===== PADRÃO DE BOTÕES ===== */
-        .button {
-            font-size: 10px;
-            font-weight: bold;
-            background-image: url("https://docz.sosdocs.com.br/Docz/app/images/ui/usualButtons.png");
-            background-repeat: repeat-x;
-            text-transform: uppercase;
-            cursor: pointer;
-            padding: 7px 18px 8px 18px;
-            border-radius: 2px;
-            color: #fff;
-            display: inline-block;
-            border: none;
-            text-decoration: none;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        .purpleB { background-position: 0 -595px; border: 1px solid #6a4a9c; }
-        .purpleB:hover { background-position: 0 -623px; }
-        .purpleB:active { background-position: 0 -651px; }
-
-        .orangeB { background-position: 0 -340px; border: 1px solid #d47a28; }
-        .orangeB:hover { background-position: 0 -368px; }
-        .orangeB:active { background-position: 0 -396px; }
-
-        .redB { background-position: 0 -170px; border: 1px solid #9f352b; }
-
-        /* ===== MODAL DE VISUALIZAÇÃO ===== */
-        #modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-        }
-
-        .modal-view {
-            width: 95%;
-            max-width: 1000px;
-        }
-
-        .img-container {
-            width: 100%;
-            max-height: 75vh;
-            overflow-y: auto;
-            background: #fff;
-            border: 1px solid #ccc;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .img-container img {
-            max-width: 100%;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Estilo para o código do SVG */
-        #svg-source-code {
-            display: none;
-            text-align: left;
-            background: #272822;
-            color: #f8f8f2;
-            padding: 15px;
-            margin: 20px;
-            border-radius: 4px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 12px;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-
-        .button-wrapper {
-            text-align: right;
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px double #ccc;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="header-title">
-        <h1>Demanda 1575 - SBIS (NGS1.12.03)</h1>
-        <p>Documentação de Protótipos - Inativação de Documentos</p>
-    </div>
-
-    <div class="prototype-container">
-        <div class="ui-dialog">
-            <div class="ui-dialog-titlebar">
-                <span class="ui-dialog-title">Protótipo 1 – Botão de Inativar Arquivo</span>
-            </div>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Demanda 1575 - SBIS (NGS1.12.03) - DocZ</title>
+      <style>        /* ===== ESTILOS BASE DOCZ ===== */        html,        body {            margin: 0;            padding: 20px;            background: #fafafa;            font-family: Arial, Helvetica, sans-serif;            color: #595959;            display: flex;            flex-direction: column;            align-items: center;        }
+         .header-title {            width: 100%;            max-width: 850px;            margin-bottom: 25px;            border-bottom: 2px solid #3672a0;            padding-bottom: 10px;        }
+         .header-title h1 {            font-size: 18px;            color: #3672a0;            margin: 0;        }
+         .header-title p {            font-size: 12px;            color: #888;            margin: 5px 0 0 0;        }
+         /* ===== CONTAINER DOS PROTÓTIPOS ===== */        .prototype-container {            width: 100%;            max-width: 850px;            margin-bottom: 20px;        }
+         .ui-dialog {            background: #585858;            padding: 5px;            border-radius: 5px;            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);        }
+         .ui-dialog-titlebar {            background: url("https://docz.sosdocs.com.br/Docz/app/images/backgrounds/titleBg.png") repeat-x 0 0;            border-bottom: 1px solid #cdcdcd;            height: 34px;            display: flex;            align-items: center;            padding: 0 10px;        }
+         .ui-dialog-title {            font-weight: bold;            color: #595959;            font-size: 11px;            text-transform: uppercase;        }
+         .ui-dialog-content {            background-color: #fafafa;            padding: 18px;        }
+         .proto-text {            font-size: 12px;            line-height: 1.6;            margin-bottom: 15px;            color: #444;        }
+         /* ===== PADRÃO DE BOTÕES ===== */        .button {            font-size: 10px;            font-weight: bold;            background-image: url("https://docz.sosdocs.com.br/Docz/app/images/ui/usualButtons.png");            background-repeat: repeat-x;            text-transform: uppercase;            cursor: pointer;            padding: 7px 18px 8px 18px;            border-radius: 2px;            color: #fff;            display: inline-block;            border: none;            text-decoration: none;            margin-right: 5px; /* Espaçamento entre botões */        }
+         /* ROXO */        .purpleB {            background-position: 0 -595px;            border: 1px solid #6a4a9c;        }
+         .purpleB:hover {            background-position: 0 -623px;        }
+         .purpleB:active {            background-position: 0 -651px;        }
+         /* LARANJA (NOVO) */        .orangeB {            background-position: 0 -340px;            border: 1px solid #d47a28;        }
+         .orangeB:hover {            background-position: 0 -368px;        }
+         .orangeB:active {            background-position: 0 -396px;        }
+         .redB {            background-position: 0 -170px;            border: 1px solid #9f352b;        }
+         /* ===== MODAL DE VISUALIZAÇÃO ===== */        #modal-overlay {            position: fixed;            top: 0;            left: 0;            width: 100%;            height: 100%;            background: rgba(0, 0, 0, 0.75);            display: none;            align-items: center;            justify-content: center;            z-index: 10000;        }
+         .modal-view {            width: 95%;            max-width: 1000px;        }
+         .img-container {            width: 100%;            max-height: 75vh;            overflow-y: auto;            background: #fff;            border: 1px solid #ccc;            text-align: center;        }
+         .img-container img {            max-width: 100%;            display: block;            margin: 0 auto;        }
+         .button-wrapper {            text-align: right;            margin-top: 15px;            padding-top: 10px;            border-top: 1px double #ccc;        }
+         /* ===== ESTILOS DO NOVO MODAL ===== */        .registro-modal {            background-color: #585858;            padding: 5px;            border-radius: 5px;            width: 750px;            max-width: 95%;            font-family: Arial, sans-serif;            box-shadow: 2px 2px 12px rgba(0,0,0,0.4);            margin: 0 auto;        }
+         .registro-modal .title {            height: 36px;            background: #efefef url('https://docz.sosdocs.com.br/Docz/app/images/backgrounds/titleBg.png') repeat-x;            border-bottom: 1px solid #cdcdcd;            display: flex;            align-items: center;            justify-content: space-between;            padding: 0 10px;            border-top-left-radius: 4px;            border-top-right-radius: 4px;        }
+         .registro-modal .ui-dialog-title {            color: #595959;            font-weight: bold;            font-size: 12px;        }
+         .registro-modal .close-icon {            display: block;            width: 16px;            height: 16px;            text-indent: -9999px;            background-image: url('https://docz.sosdocs.com.br/Docz/app/images/jquery_ui/ui-icons_222222_256x240.png');            background-position: -80px -128px;        }
+         .registro-modal .content {            background-color: #ffffff;            padding: 20px;        }
+         .registro-modal .border-container {            border: 1px solid #cccccc;            border-radius: 2px;            overflow: hidden;        }
+         .registro-modal .header-section {            background-color: #f9f9f9;            padding: 10px 15px;            font-weight: bold;            font-size: 13px;            color: #444;            border-bottom: 1px solid #eeeeee;        }
+         .registro-modal table {            width: 100%;            border-collapse: collapse;            font-size: 12px;            color: #595959;        }
+         .registro-modal th {            padding: 10px 15px;            border-right: 1px solid #eeeeee;            text-align: left;            background-color: #fcfcfc;        }
+         .registro-modal td {            padding: 15px;            border-right: 1px solid #eeeeee;            line-height: 1.4;            vertical-align: top;        }
+         .registro-modal td:last-child, .registro-modal th:last-child {            border-right: none;        }
+         .registro-modal tbody tr {            border-top: 1px solid #eeeeee;        }
+         /* ===== OVERLAY PARA O MODAL DE REGISTRO ===== */        #registro-overlay {            position: fixed;            top: 0;            left: 0;            width: 100%;            height: 100%;            background: rgba(0, 0, 0, 0.75);            display: none;            align-items: center;            justify-content: center;            z-index: 10001;        }
+         .registro-wrapper {            width: auto;            max-width: 95%;        }    
+      </style>
+   </head>
+   <body>
+      <div class="header-title">
+         <h1>Demanda 1575 - SBIS (NGS1.12.03)</h1>
+         <p>Documentação de Protótipos - Inativação de Documentos</p>
+      </div>
+      <div class="prototype-container">
+         <div class="ui-dialog">
+            <div class="ui-dialog-titlebar">                <span class="ui-dialog-title">Protótipo 1 – Botão de Inativar Arquivo</span>            </div>
             <div class="ui-dialog-content">
-                <div class="proto-text">
-                    Foi adicionado um botão de ação (ícone) chamado <b>“Inativar Arquivo”</b>. Ao passar o mouse sobre o
-                    ícone, é exibido um hint: <i>“Clique para inativar este arquivo”</i>.
-                </div>
-                <button class="button purpleB"
-                    onclick="abrirModal('botaonovo.png', 'Interface de Ação - Inativar Arquivo')">
-                    Visualizar Protótipo
-                </button>
-                
-                <button class="button orangeB" onclick="abrirModalSVG()">
-                    Ver Ícone SVG + Código
-                </button>
+               <div class="proto-text">                    Foi adicionado um botão de ação (ícone) chamado <b>“Inativar Arquivo”</b>. Ao passar o mouse sobre o                    ícone, é exibido um hint: <i>“Clique para inativar este arquivo”</i>.                </div>
+               <button class="button purpleB"                    onclick="abrirModal('botaonovo.png', 'Interface de Ação - Inativar Arquivo')">                    Visualizar Protótipo                </button>            
             </div>
-        </div>
-    </div>
-
-    <div class="prototype-container">
-        <div class="ui-dialog">
-            <div class="ui-dialog-titlebar">
-                <span class="ui-dialog-title">Protótipo 2 – Modal de Justificativa</span>
-            </div>
+         </div>
+      </div>
+      <div class="prototype-container">
+         <div class="ui-dialog">
+            <div class="ui-dialog-titlebar">                <span class="ui-dialog-title">Protótipo 2 – Modal de Justificativa</span>            </div>
             <div class="ui-dialog-content">
-                <div class="proto-text">
-                    Ao clicar em “Inativar Arquivo”, é exibido um popup no padrão visual do sistema com aviso de que o
-                    arquivo continuará disponível, porém marcado como <b>INATIVO</b>. Exige preenchimento de
-                    justificativa.
-                </div>
-                <button class="button purpleB"
-                    onclick="abrirModal('justificativa.png', 'Modal de Confirmação e Justificativa')">
-                    Visualizar Protótipo
-                </button>
-                <a href="https://macielguilherme.github.io/inativar-documento-/" target="_blank" class="button orangeB">
-                    Ir para Tela do Modal
-                </a>
+               <div class="proto-text">                    Ao clicar em “Inativar Arquivo”, é exibido um popup no padrão visual do sistema com aviso de que o                    arquivo continuará disponível, porém marcado como <b>INATIVO</b>. Exige preenchimento de                    justificativa.                </div>
+               <button class="button purpleB"                    onclick="abrirModal('justificativa.png', 'Modal de Confirmação e Justificativa')">                    Visualizar Protótipo                </button>                                <a href="https://macielguilherme.github.io/inativar-documento-/" target="_blank" class="button orangeB">                    Ir para Tela do Modal                </a>
             </div>
-        </div>
-    </div>
-
-    <div class="prototype-container">
-        <div class="ui-dialog">
-            <div class="ui-dialog-titlebar">
-                <span class="ui-dialog-title">Protótipo 3 – Destaque de Arquivo Inativado</span>
-            </div>
+         </div>
+      </div>
+      <div class="prototype-container">
+         <div class="ui-dialog">
+            <div class="ui-dialog-titlebar">                <span class="ui-dialog-title">Protótipo 3 – Registro de Inativação</span>            </div>
             <div class="ui-dialog-content">
-                <div class="proto-text">
-                    Após confirmação, a linha do registro é alterada visualmente: o título fica esmaecido e recebe o
-                    badge <b>“Arquivo Inativo”</b> para rápida identificação visual.
-                </div>
-                <button class="button purpleB"
-                    onclick="abrirModal('inativado.png', 'Status Visual: Arquivo Inativado')">Visualizar
-                    Protótipo</button>
+               <div class="proto-text">                    Modal que exibe os detalhes da inativação do documento, incluindo data, responsável e justificativa.                </div>
+               <button class="button orangeB" onclick="abrirRegistroModal()">
+               Visualizar Registro de Inativação
+               </button>
             </div>
-        </div>
-    </div>
-
-    <div class="prototype-container">
-        <div class="ui-dialog">
-            <div class="ui-dialog-titlebar">
-                <span class="ui-dialog-title">Protótipo 4 – Marca d’água no Arquivo</span>
-            </div>
+         </div>
+      </div>
+      <div class="prototype-container">
+         <div class="ui-dialog">
+            <div class="ui-dialog-titlebar">                <span class="ui-dialog-title">Protótipo 4 – Destaque de Arquivo Inativado</span>            </div>
             <div class="ui-dialog-content">
-                <div class="proto-text">
-                    Ao visualizar o documento, uma <b>marca d'água diagonal</b> com o texto “ARQUIVO INATIVO” é
-                    sobreposta à imagem, garantindo a segurança da informação visualizada.
-                </div>
-                <button class="button purpleB"
-                    onclick="abrirModal('pdfinativo.png', 'Visualização do Documento com Tarja')">Visualizar
-                    Protótipo</button>
+               <div class="proto-text">                    Após confirmação, a linha do registro é alterada visualmente: o título fica esmaecido e recebe o                    badge <b>“Arquivo Inativo”</b> para rápida identificação visual.                </div>
+               <button class="button purpleB"                    onclick="abrirModal('inativado.png', 'Status Visual: Arquivo Inativado')">Visualizar                    Protótipo</button>            
             </div>
-        </div>
-    </div>
-
-    <div class="prototype-container">
-        <div class="ui-dialog">
-            <div class="ui-dialog-titlebar">
-                <span class="ui-dialog-title">Protótipo 5 – Novo Parâmetro de Projeto</span>
-            </div>
+         </div>
+      </div>
+      <div class="prototype-container">
+         <div class="ui-dialog">
+            <div class="ui-dialog-titlebar">                <span class="ui-dialog-title">Protótipo 5 – Marca d’água no Arquivo</span>            </div>
             <div class="ui-dialog-content">
-                <div class="proto-text">
-                    Implementação do parâmetro de controle. A combo <i>"Selecione o status de Gestão Documental"</i>
-                    possui comportamento dinâmico, aparecendo apenas quando o checkbox está ativo.
-                </div>
-                <button class="button purpleB"
-                    onclick="abrirModal('naoativado.png', 'Parâmetros - Estado Desabilitado')">Visualizar Estado
-                    1</button>
-                <button class="button purpleB"
-                    onclick="abrirModal('ativado.png', 'Parâmetros - Estado Habilitado')">Visualizar Estado
-                    2</button>
+               <div class="proto-text">                    Ao visualizar o documento, uma <b>marca d'água diagonal</b> com o texto “ARQUIVO INATIVO” é                    sobreposta à imagem, garantindo a segurança da informação visualizada.                </div>
+               <button class="button purpleB"                    onclick="abrirModal('pdfinativo.png', 'Visualização do Documento com Tarja')">Visualizar                    Protótipo</button>            
             </div>
-        </div>
-    </div>
-
-    <div id="modal-overlay">
-        <div class="ui-dialog modal-view">
-            <div class="ui-dialog-titlebar">
-                <span class="ui-dialog-title" id="modal-title">Visualização</span>
-            </div>
+         </div>
+      </div>
+      <div class="prototype-container">
+         <div class="ui-dialog">
+            <div class="ui-dialog-titlebar">                <span class="ui-dialog-title">Protótipo 6 – Novo Parâmetro de Projeto</span>            </div>
             <div class="ui-dialog-content">
-                <div class="img-container" id="modal-render-area">
-                    <img id="target-img" src="" alt="Protótipo DocZ">
-                    <div id="svg-preview"></div>
-                    <pre id="svg-source-code"></pre>
-                </div>
-                <div class="button-wrapper">
-                    <button class="button redB" onclick="fecharModal()">FECHAR</button>
-                </div>
+               <div class="proto-text">                    Implementação do parâmetro de controle. A combo <i>"Selecione o status de Gestão Documental"</i>                    possui comportamento dinâmico, aparecendo apenas quando o checkbox está ativo.                </div>
+               <button class="button purpleB"                    onclick="abrirModal('naoativado.png', 'Parâmetros - Estado Desabilitado')">Visualizar Estado                    1</button>                <button class="button purpleB"                    onclick="abrirModal('ativado.png', 'Parâmetros - Estado Habilitado')">Visualizar Estado                    2</button>            
             </div>
-        </div>
-    </div>
-
-    <script>
-        // O seu código SVG salvo em uma variável para ser reutilizado
-        const meuSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 256 256" fill="none">
-  <path fill="rgb(80,230,255)" stroke="rgb(37,107,119)" stroke-width="12" d="M40 16h120l56 56v152a8 8 0 0 1 -8 8H40a8 8 0 0 1 -8-8V24a8 8 0 0 1 8-8z" />
-  <path fill="rgb(46,122,213)" d="M160 16v56h56" />
-  <line x1="160" y1="16" x2="216" y2="72" stroke="rgb(37,107,119)" stroke-width="12" stroke-linecap="round" />
-  <line x1="88" y1="128" x2="168" y2="208" stroke="rgb(11,121,155)" stroke-width="16" stroke-linecap="round" />
-  <line x1="168" y1="128" x2="88" y2="208" stroke="rgb(11,121,155)" stroke-width="16" stroke-linecap="round" />
-</svg>`;
-
-        function abrirModal(arquivo, titulo) {
-            const overlay = document.getElementById('modal-overlay');
-            const img = document.getElementById('target-img');
-            const title = document.getElementById('modal-title');
-            const svgPreview = document.getElementById('svg-preview');
-            const svgCode = document.getElementById('svg-source-code');
-
-            // Reseta visualização para modo Imagem
-            img.style.display = 'block';
-            svgPreview.style.display = 'none';
-            svgCode.style.display = 'none';
-
-            img.src = arquivo; 
-            title.innerText = titulo;
-            overlay.style.display = 'flex';
-        }
-
-        function abrirModalSVG() {
-            const overlay = document.getElementById('modal-overlay');
-            const img = document.getElementById('target-img');
-            const title = document.getElementById('modal-title');
-            const svgPreview = document.getElementById('svg-preview');
-            const svgCode = document.getElementById('svg-source-code');
-
-            // Configura visualização para modo SVG
-            img.style.display = 'none';
-            svgPreview.style.display = 'block';
-            svgCode.style.display = 'block';
-
-            title.innerText = "Recurso Gráfico: Ícone de Inativação (SVG)";
-            svgPreview.innerHTML = meuSVG;
-            svgCode.innerText = meuSVG; // Mostra o texto do código
-
-            overlay.style.display = 'flex';
-        }
-
-        function fecharModal() {
-            document.getElementById('modal-overlay').style.display = 'none';
-        }
-
-        document.getElementById('modal-overlay').addEventListener('click', function (e) {
-            if (e.target === this) fecharModal();
-        });
-    </script>
-</body>
-
+         </div>
+      </div>
+      <!-- Overlay para visualização de imagens -->
+      <div id="modal-overlay">
+         <div class="ui-dialog modal-view">
+            <div class="ui-dialog-titlebar">                <span class="ui-dialog-title" id="modal-title">Visualização</span>            </div>
+            <div class="ui-dialog-content">
+               <div class="img-container">                    <img id="target-img" src="" alt="Protótipo DocZ">                </div>
+               <div class="button-wrapper">                    <button class="button redB" onclick="fecharModal()">FECHAR</button>                </div>
+            </div>
+         </div>
+      </div>
+      <!-- Overlay para o modal de Registro de Inativação -->
+      <div id="registro-overlay" onclick="fecharRegistroModal(event)">
+         <div class="registro-wrapper">
+            <div class="registro-modal">
+               <div class="title">
+                  <span class="ui-dialog-title">Registro de Inativação</span>
+                  <div style="display: flex; align-items: center;">
+                     <a href="#" class="wijmo-wijdialog-captionbutton" style="text-decoration: none; margin: 1px;" onclick="fecharRegistroModal(event); return false;">
+                     <span class="close-icon">close</span>
+                     </a>
+                  </div>
+               </div>
+               <div class="content">
+                  <div class="border-container">
+                     <div class="header-section">Dados da Operação</div>
+                     <table>
+                        <thead>
+                           <tr style="text-align: left; background-color: #fcfcfc;">
+                              <th style="padding: 10px 15px; border-right: 1px solid #eeeeee; width: 160px;">Inativado em</th>
+                              <th style="padding: 10px 15px; border-right: 1px solid #eeeeee; width: 200px;">Inativado por</th>
+                              <th style="padding: 10px 15px;">Justificativa da Inativação</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr style="border-top: 1px solid #eeeeee;">
+                              <td style="padding: 15px; border-right: 1px solid #eeeeee; line-height: 1.4; vertical-align: top;">19/02/2026,<br>14:30:45</td>
+                              <td style="padding: 15px; border-right: 1px solid #eeeeee; line-height: 1.4; vertical-align: top; font-weight: bold;">NATHÁLIA NOVAIS<br>MATTOS</td>
+                              <td style="padding: 15px; line-height: 1.4; vertical-align: top; text-align: justify;">Arquivo substituído conforme solicitação da gerência devido a erro de digitação no campo de valores da página 02.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>        function abrirModal(arquivo, titulo) {            const overlay = document.getElementById('modal-overlay');            const img = document.getElementById('target-img');            const title = document.getElementById('modal-title');
+         img.src = arquivo;             title.innerText = titulo;            overlay.style.display = 'flex';        }
+         
+         function fecharModal() {            document.getElementById('modal-overlay').style.display = 'none';        }
+         
+         function abrirRegistroModal() {
+         document.getElementById('registro-overlay').style.display = 'flex';
+         }
+         
+         function fecharRegistroModal(event) {
+         if (event) {
+             event.preventDefault();
+             event.stopPropagation();
+         }
+         document.getElementById('registro-overlay').style.display = 'none';
+         }
+         
+         document.getElementById('modal-overlay').addEventListener('click', function (e) {            if (e.target === this) fecharModal();        });
+         
+         document.getElementById('registro-overlay').addEventListener('click', function (e) {
+         if (e.target === this) fecharRegistroModal(e);
+         });    
+      </script>
+   </body>
 </html>
